@@ -10,8 +10,16 @@ const WorkoutSchema = new Schema(
     },
     exercises: [
         {
-            type: String,
-            name: String,
+            type: {
+                type: String,
+                trim: true,
+                required: "Cardio or Resistance?"
+            },
+            name: {
+                type: String,
+                trim: true,
+                required: "Enter a name for transaction"
+            },
             distance: Number,
             duration: Number,
             weight: Number,
@@ -20,9 +28,9 @@ const WorkoutSchema = new Schema(
         }
     ]
     },
-    {
-        toJSON: { virtuals: true },
-    }
+    // {
+    //     toJSON: { virtuals: true },
+    // }
 );
 
 const Workout = mongoose.model("Workout", WorkoutSchema);
