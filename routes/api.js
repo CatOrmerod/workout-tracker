@@ -35,7 +35,7 @@ router.get("/api/workouts", (req, res) => {
 });
 
 //route to update exisitng workout
-router.get("/api/workouts/:id", (req, res) => {
+router.put("/api/workouts/:id", (req, res) => {
   Workout.findByIdAndUpdate({_id: req.params.id}, {exercises: req.body})
     .then(dbWorkout => {
       res.json(dbWorkout);
