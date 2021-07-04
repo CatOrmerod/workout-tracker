@@ -8,6 +8,16 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workoutdb", {
   useUnifiedTopology: true,
 });
 
+const connection = mongoose.connection;
+
+connection.on("connected", () => {
+  console.log("Successfully connected.");
+});
+
+connection.on("error", (err) => {
+  console.log("Error Log" + err);
+});
+
 const workoutSeed = [
   {
     day: new Date(new Date().setDate(new Date().getDate() - 9)),
