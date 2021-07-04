@@ -22,7 +22,8 @@ const WorkoutSchema = new Schema(
             },
             duration: {
                 type: Number,
-                required: true
+                required: true, 
+                min: [1, 'Press complete to finish']
             },
             distance: Number,
             weight: Number,

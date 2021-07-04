@@ -45,7 +45,7 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-//route to find all workouts within 7 day range
+//route to find details for last 7 workouts
 router.get("/api/workouts/range", (req, res) => {
   db.Workout.aggregate([
     {
