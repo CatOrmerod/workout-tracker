@@ -15,6 +15,7 @@ router.post("/api/workouts", ({ body }, res) => {
 //route to update exisitng workout
 router.put("/api/workouts/:id", (req, res) => {
   console.log(req.body)
+  console.log(req.params)
   db.Workout.findByIdAndUpdate(
     req.params.id, 
     { $push: {exercises: req.body} },
